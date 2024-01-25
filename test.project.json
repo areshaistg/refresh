@@ -1,0 +1,29 @@
+{
+  "name": "refresh -- test",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Packages": {
+        "$className": "Folder",
+        "Refresh": {
+          "$path": "lib/"
+        }
+      },
+      "Source": {
+        "$path": "src/Shared"
+      }
+    },
+    "ServerScriptService": {
+      "Server": {
+        "$path": "src/Server"
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Client": {
+          "$path": "src/Client"
+        }
+      }
+    }
+  }
+}
