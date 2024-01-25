@@ -7,3 +7,6 @@ include = ["lib", "default.project.json"]
 
 [dependencies]
 Rewire = "sayhisam1/rewire@0.3.0"
+
+[dev-dependencies]
+Component = "areshaistg/component@0.1.2"
