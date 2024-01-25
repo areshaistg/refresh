@@ -3,21 +3,21 @@ local RunService = game:GetService("RunService")
 
 local Refresh = require(ReplicatedStorage.Packages.Refresh)
 
-export type MyHandlerState = string
-export type MyHandler = Refresh.BaseHandler<MyHandlerState>
-local MyHandler: MyHandler = {
-	Name = "MyHandler",
+export type MyClientHost = Refresh.BaseHost<string>
+local MyClientHost: MyClientHost = {
+	Name = "MyClientHost",
 	State = "foo",
 }
 
--- function MyHandler:OnInit() end
+-- function MyClientHost:OnInit() end
 
-function MyHandler:OnStart()
+function MyClientHost:OnStart()
 	self.Conn = RunService.RenderStepped:Connect(function(_deltaTime: number) end)
+	print("Foo")
 end
 
-function MyHandler:OnStop()
+function MyClientHost:OnStop()
 	self.Conn:Disconnect()
 end
 
-return Refresh.Client.RegisterHandler(MyHandler)
+return Refresh.RegisterHost(MyClientHost)

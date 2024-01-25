@@ -1,30 +1,16 @@
 --!nonstrict
 
 -- [[ Services ]] ----------------------------------------
-local RunService = game:GetService("RunService")
+local Rewire = require(script.Parent.Parent.Parent.Rewire)
 
 -- [[ Reloader ]] ----------------------------------------
-local CLONED_MODULE = "__cloned_module_tag"
-
 local Reloader = {}
+Reloader.RewireInstance = Rewire.HotReloader.new()
 
 function Reloader.Watch(module: ModuleScript)
-	if RunService:IsStudio() then
-		local cache = module:Clone()
-		cache:AddTag(CLONED_MODULE)
-		cache.Parent = module.Parent
-		require(cache)
-		module.Changed:Connect(function()
-			print("Reload!")
-			cache:Destroy()
-			cache = module:Clone()
-			cache:AddTag(CLONED_MODULE)
-			cache.Parent = module.Parent
-			require(cache)
-		end)
-	else
-		require(module)
-	end
+	Reloader.RewireInstance:listen(module, function(cloned_mod)
+		require(cloned_mod)
+	end, function() end)
 end
 
 return Reloader

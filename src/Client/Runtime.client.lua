@@ -2,10 +2,10 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Refresh = require(ReplicatedStorage.Packages.Refresh)
 
-local Handlers = ReplicatedStorage.Source.Handlers
+local Hosts = ReplicatedStorage.Source.Hosts
 
-Refresh.Reloader.Watch(Handlers.MyHandler)
+Refresh.Reloader.Watch(Hosts.MyClientHost)
 
-Refresh.Client.Start()
+Refresh.Start()
 
 print("Game Started")

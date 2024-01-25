@@ -2,14 +2,19 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Refresh = require(ReplicatedStorage.Packages.Refresh)
 
-local MyService = {
-	Name = "MyService",
+local MyServerHost = {
+	Name = "MyServerHost",
 	State = { Foo = "Bar", Baz = false },
 }
 
-function MyService:OnStart()
+function MyServerHost:OnStart()
 	self.State.Bar = true
 	print(self.State)
+	print("Start")
 end
 
-return Refresh.Server.RegisterService(MyService)
+function MyServerHost:OnInit()
+	print("Init 6")
+end
+
+return Refresh.RegisterHost(MyServerHost)
