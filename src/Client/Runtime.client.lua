@@ -4,8 +4,12 @@ local Refresh = require(ReplicatedStorage.Packages.Refresh)
 
 local Hosts = ReplicatedStorage.Source.Hosts
 
-Refresh.Reloader.Watch(Hosts.MyClientHost)
-
+for _, child in Hosts:GetChildren() do
+	if not child:IsA("ModuleScript") then
+		continue
+	end
+	Refresh.Reloader.Watch(child)
+end
 Refresh.Start()
 
 print("Game Started")
