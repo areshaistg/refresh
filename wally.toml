@@ -1,0 +1,8 @@
+[package]
+name = "areshaistg/refresh"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+Rewire = "sayhisam1/rewire@0.3.0"
