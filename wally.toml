@@ -3,6 +3,7 @@ name = "areshaistg/refresh"
 version = "0.1.1"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
+include = ["lib", "default.project.json"]
 
 [dependencies]
 Rewire = "sayhisam1/rewire@0.3.0"
