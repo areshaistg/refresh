@@ -9,6 +9,9 @@
           "$path": "lib/"
         }
       },
+      "DevPackages": {
+        "$path": "DevPackages/"
+      },
       "Source": {
         "$path": "src/Shared"
       }
